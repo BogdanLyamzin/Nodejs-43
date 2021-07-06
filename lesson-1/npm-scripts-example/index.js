@@ -1,1 +1,1 @@
-console.log("Project start");
+console.log("Project start now");

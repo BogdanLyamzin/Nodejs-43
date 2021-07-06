@@ -1,13 +1,15 @@
-// console.log(new Date());
+console.log(new Date());
+
+// const date = new Date();
 
 const admins = ["Alex", "Andrey", "VAsiliy"];
 
 const clients = ["Anna", "Alina", "Tamara"];
 
 module.exports = {
-    admins,
-    clients
-}
+  admins,
+  clients,
+};
 
 /*
 const users = {
