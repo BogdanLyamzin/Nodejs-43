@@ -1,5 +1,5 @@
 {
-  "name": "work-with-json-files",
+  "name": "commander-example",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -15,6 +15,6 @@
     "nodemon": "^2.0.10"
   },
   "dependencies": {
-    "uuid": "^8.3.2"
+    "commander": "^8.0.0"
   }
 }
