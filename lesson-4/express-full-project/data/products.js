@@ -1,13 +1,17 @@
+const {v4} = require("uuid");
+
 const products = [
     {
-        _id: "34ggffg",
+        _id: v4(),
         name: "iPhone X",
-        price: 34000
+        price: 34000,
+        isActive: true,
     },
     {
-        _id: "dffgsdgdg",
+        _id: v4(),
         name: "GeForce RTX 3900",
-        price: 90000
+        price: 90000,
+        isActive: true
     }
 ];
 

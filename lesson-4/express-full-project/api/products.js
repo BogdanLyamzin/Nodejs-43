@@ -1,37 +1,23 @@
 const express = require("express");
 
-const products = require("../data/products");
+// const {validateProduct} = require("../middlewares");
+const {validateProduct} = require("../validateSchemas");
+const {validateMiddleware} = require("../middlewares");
+const {products: ctrl} = require("../controllers");
 
 const router = express.Router();
 
-router.get("/", (req, res)=>{
-    res.json({
-        status: "success",
-        code: 200,
-        data: {
-            result: products
-        }
-    });
-});
+router.get("/", ctrl.getAll);
 
-router.get("/:id", (req, res)=> {
-    const {id} = req.params;
-    const product = products.find(({_id}) => _id === id);
-    if(!product){
-        res.status(404).json({
-            status: "error",
-            code: 404,
-            message: `Product with id=${id} not found`        
-        });
-    }
-    res.json({
-        status: "success",
-        code: 200,
-        data: {
-            result: product
-        }
-    })
-})
+router.get("/:id", ctrl.getById);
+
+// router.post("/", express.json(), validateProduct, ctrl.add);
+router.post("/", express.json(), validateMiddleware(validateProduct), ctrl.add);
+router.put("/:id", express.json(), ctrl.update);
+
+router.patch("/:id", express.json(), ctrl.updateStatus);
+
+router.delete("/:id", ctrl.del);
 
 module.exports = router;
 
