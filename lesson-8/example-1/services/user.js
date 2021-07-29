@@ -22,9 +22,14 @@ const add = ({email, password}) => {
     // return User.create({email, password: hashPassword});
 }
 
+const updateById = (id, updateInfo) => {
+    return User.findByIdAndUpdate(id, updateInfo, {new: true});
+}
+
 module.exports = {
     getAll,
     getOne,
     getById,
-    add
+    add,
+    updateById
 }
